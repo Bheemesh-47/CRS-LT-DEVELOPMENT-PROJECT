@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: com.lt.application.CrsProjectApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.837 s <<< FAILURE! - in com.lt.application.CrsProjectApplicationTests
+contextLoads  Time elapsed: 0.026 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'requestMappingHandlerMapping' defined in org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'studentRestController' method 
+com.lt.restcontroller.StudentRestController#getStudents(int, int, String)
+to {PUT [/addcourse]}: There is already 'studentRestController' bean method
+com.lt.restcontroller.StudentRestController#getStudents(int, int) mapped.
+Caused by: java.lang.IllegalStateException: 
+Ambiguous mapping. Cannot map 'studentRestController' method 
+com.lt.restcontroller.StudentRestController#getStudents(int, int, String)
+to {PUT [/addcourse]}: There is already 'studentRestController' bean method
+com.lt.restcontroller.StudentRestController#getStudents(int, int) mapped.
+

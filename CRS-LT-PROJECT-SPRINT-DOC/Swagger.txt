@@ -1,0 +1,70 @@
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		
+JSON - Integration url : 
+http://localhost:8082/v2/api-docs
+
+Swagger integration url:
+http://localhost:8082/swagger-ui/index.	html#/
+		
+		
+		
+Main Class
+
+package com.lt.application;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.lt.config.SpringJDBCConfiguration;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+//import com.lt.config.SpringJDBCConfiguration;
+
+@ComponentScan({"com.lt.*"})
+@EnableWebMvc
+@SpringBootApplication
+@EnableAutoConfiguration
+@Import({SpringJDBCConfiguration.class})
+@EnableSwagger2
+
+public class CrsProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CrsProjectApplication.class, args);
+		//ApplicationContext context=SpringApplication.run(SpringJDBCConfiguration.class);
+	}
+	
+	@Bean
+	public Docket apiDocket() {
+		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
+				.paths(PathSelectors.any()).build();
+	}
+}

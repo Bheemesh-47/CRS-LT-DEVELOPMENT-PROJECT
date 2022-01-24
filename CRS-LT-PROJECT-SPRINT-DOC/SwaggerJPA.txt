@@ -1,1 +1,11 @@
 http://localhost:1234/swagger-ui/index.html#
+
+
+Eureka Server Link:
+http://localhost:8761
+
+For Microservices following is the swagger links:
+http://localhost:8888/swagger-ui/index.html#/ ---> User Consumer
+http://localhost:8686/swagger-ui/index.html#/ ---> Student Consumer
+http://localhost:8484/swagger-ui/index.html#/ ---> Professor Consumer
+http://localhost:8282/swagger-ui/index.html#/ ---> Admin Consumer

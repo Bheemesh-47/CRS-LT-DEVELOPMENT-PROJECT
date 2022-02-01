@@ -1,0 +1,47 @@
+<div>
+  
+    <div class="table-responsive">
+        <table class="table display nowrap">
+            <thead>
+
+                <tr>
+      
+                  <th scope="col">S.No</th>
+      
+                  <th scope="col">Course ID</th>
+      
+                  <th scope="col">Course Name</th>
+      
+                  <th scope="col">Student ID</th>
+
+                  <th scope="col">Student Name</th>
+      
+                </tr>
+      
+              </thead>
+      
+              <tbody >
+                <tr *ngFor='let studentDetails of this.listOfEnrolledStudents;let i=index' >
+
+                    <th scope="row">{{i+1}}</th>
+        
+                    <td >{{studentDetails.courseId}}</td>
+        
+                    <td>{{studentDetails.courseName | uppercase}}</td>
+                    <td >{{studentDetails.studentId}}</td>
+        
+                    <td>{{studentDetails.studentName | uppercase}}</td>
+                    
+                  </tr>
+        
+             
+        
+                </tbody>
+        </table>
+      </div>
+    
+
+
+
+</div>
+
